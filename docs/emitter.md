@@ -1,6 +1,6 @@
 # Emitter (Observability)
 
-> Location within the framework `bee-agent-framework/emitter`.
+> Location within the framework `Asuna-agent-framework/emitter`.
 
 An emitter is a core functionality of the framework that allows you to see what is happening under the hood.
 
@@ -13,7 +13,7 @@ The following examples demonstrate how [`Emitter`](/src/emitter/emitter.ts) conc
 <!-- embedme examples/emitter/base.ts -->
 
 ```ts
-import { Emitter, EventMeta } from "bee-agent-framework/emitter/emitter";
+import { Emitter, EventMeta } from "Asuna-agent-framework/emitter/emitter";
 
 // Get the root emitter or create your own
 const root = Emitter.root;
@@ -37,7 +37,7 @@ _Source: [examples/emitter/base.ts](/examples/emitter/base.ts)_
 <!-- embedme examples/emitter/advanced.ts -->
 
 ```ts
-import { Emitter, EventMeta, Callback } from "bee-agent-framework/emitter/emitter";
+import { Emitter, EventMeta, Callback } from "Asuna-agent-framework/emitter/emitter";
 
 // Define events in advanced
 interface Events {
@@ -47,7 +47,7 @@ interface Events {
 
 // Create emitter with a type support
 const emitter = Emitter.root.child<Events>({
-  namespace: ["bee", "demo"],
+  namespace: ["Asuna", "demo"],
   creator: {}, // typically a class
   context: {}, // custom data (propagates to the event's context property)
   groupId: undefined, // optional id for grouping common events (propagates to the event's groupId property)
@@ -65,7 +65,7 @@ emitter.on("update", async (data, event: EventMeta) => {
 });
 
 await emitter.emit("start", { id: 123 });
-await emitter.emit("update", { id: 123, data: "Hello Bee!" });
+await emitter.emit("update", { id: 123, data: "Hello Asuna!" });
 ```
 
 _Source: [examples/emitter/advanced.ts](/examples/emitter/advanced.ts)_
@@ -80,8 +80,8 @@ _Source: [examples/emitter/advanced.ts](/examples/emitter/advanced.ts)_
 <!-- embedme examples/emitter/matchers.ts -->
 
 ```ts
-import { Callback, Emitter } from "bee-agent-framework/emitter/emitter";
-import { BaseLLM } from "bee-agent-framework/llms/base";
+import { Callback, Emitter } from "Asuna-agent-framework/emitter/emitter";
+import { BaseLLM } from "Asuna-agent-framework/llms/base";
 
 interface Events {
   update: Callback<{ data: string }>;
@@ -117,7 +117,7 @@ _Source: [examples/emitter/matchers.ts](/examples/emitter/matchers.ts)_
 <!-- embedme examples/emitter/piping.ts -->
 
 ```ts
-import { Emitter, EventMeta } from "bee-agent-framework/emitter/emitter";
+import { Emitter, EventMeta } from "Asuna-agent-framework/emitter/emitter";
 
 const first = new Emitter({
   namespace: ["app"],
@@ -162,11 +162,11 @@ Typically, you consume out-of-the-box modules that use the `Emitter` concept on 
 <!-- embedme examples/emitter/agentMatchers.ts -->
 
 ```ts
-import { BeeAgent } from "bee-agent-framework/agents/bee/agent";
-import { UnconstrainedMemory } from "bee-agent-framework/memory/unconstrainedMemory";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
+import { AsunaAgent } from "Asuna-agent-framework/agents/Asuna/agent";
+import { UnconstrainedMemory } from "Asuna-agent-framework/memory/unconstrainedMemory";
+import { OllamaChatLLM } from "Asuna-agent-framework/adapters/ollama/chat";
 
-const agent = new BeeAgent({
+const agent = new AsunaAgent({
   llm: new OllamaChatLLM(),
   memory: new UnconstrainedMemory(),
   tools: [],
@@ -195,7 +195,7 @@ _Source: [examples/emitter/agentMatchers.ts](/examples/emitter/agentMatchers.ts)
 
 > [!TIP]
 >
-> The more complex agentic example can be found [here](/examples/agents/bee.ts).
+> The more complex agentic example can be found [here](/examples/agents/Asuna.ts).
 
 > [!TIP]
 >
