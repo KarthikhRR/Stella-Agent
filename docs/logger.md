@@ -2,22 +2,22 @@
 
 > [!TIP]
 >
-> Location within the framework `bee-agent-framework/logger`.
+> Location within the framework `Asuna-agent-framework/logger`.
 
 The Logger is a key component designed to record and track events, errors, and other important actions during an application's execution. It provides valuable insights into the application's behavior, performance, and potential issues, helping developers and system administrators troubleshoot and monitor the system effectively.
 
-In the Bee Agent Framework, the [Logger](/src/logger/logger.ts) class is an abstraction built on top of the popular [pino](https://github.com/pinojs/pino) logger, offering additional flexibility and integration.
+In the Asuna Agent Framework, the [Logger](/src/logger/logger.ts) class is an abstraction built on top of the popular [pino](https://github.com/pinojs/pino) logger, offering additional flexibility and integration.
 
 ## Basic Usage
 
 <!-- embedme examples/logger/base.ts -->
 
 ```ts
-import { Logger, LoggerLevel } from "bee-agent-framework/logger/logger";
+import { Logger, LoggerLevel } from "Asuna-agent-framework/logger/logger";
 
 // Configure logger defaults
-Logger.defaults.pretty = true; // Pretty-print logs (default: false, can also be set via ENV: BEE_FRAMEWORK_LOG_PRETTY=true)
-Logger.defaults.level = LoggerLevel.TRACE; // Set log level to trace (default: TRACE, can also be set via ENV: BEE_FRAMEWORK_LOG_LEVEL=trace)
+Logger.defaults.pretty = true; // Pretty-print logs (default: false, can also be set via ENV: Asuna_FRAMEWORK_LOG_PRETTY=true)
+Logger.defaults.level = LoggerLevel.TRACE; // Set log level to trace (default: TRACE, can also be set via ENV: Asuna_FRAMEWORK_LOG_LEVEL=trace)
 Logger.defaults.name = undefined; // Optional name for logger (default: undefined)
 Logger.defaults.bindings = {}; // Optional bindings for structured logging (default: empty)
 
@@ -42,11 +42,11 @@ The [Logger](/src/logger/logger.ts) seamlessly integrates with agents in the fra
 <!-- embedme examples/logger/agent.ts -->
 
 ```ts
-import { BeeAgent } from "bee-agent-framework/agents/bee/agent";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
-import { UnconstrainedMemory } from "bee-agent-framework/memory/unconstrainedMemory";
-import { Logger } from "bee-agent-framework/logger/logger";
-import { Emitter } from "bee-agent-framework/emitter/emitter";
+import { AsunaAgent } from "Asuna-agent-framework/agents/Asuna/agent";
+import { OllamaChatLLM } from "Asuna-agent-framework/adapters/ollama/chat";
+import { UnconstrainedMemory } from "Asuna-agent-framework/memory/unconstrainedMemory";
+import { Logger } from "Asuna-agent-framework/logger/logger";
+import { Emitter } from "Asuna-agent-framework/emitter/emitter";
 
 // Set up logging
 Logger.defaults.pretty = true;
@@ -63,7 +63,7 @@ Emitter.root.match("*.*", (data, event) => {
 });
 
 // Create and run an agent
-const agent = new BeeAgent({
+const agent = new AsunaAgent({
   llm: new OllamaChatLLM(),
   memory: new UnconstrainedMemory(),
   tools: [],
@@ -77,12 +77,12 @@ _Source: [examples/logger/agent.ts](/examples/logger/agent.ts)_
 
 ## Custom pino instance integration
 
-If you need to integrate your own `pino` instance with the Bee Agent Framework Logger, you can do so easily. Below is an example that demonstrates how to create a pino logger and use it with the framework’s [Logger](/src/logger/logger.ts).
+If you need to integrate your own `pino` instance with the Asuna Agent Framework Logger, you can do so easily. Below is an example that demonstrates how to create a pino logger and use it with the framework’s [Logger](/src/logger/logger.ts).
 
 <!-- embedme examples/logger/pino.ts -->
 
 ```ts
-import { Logger } from "bee-agent-framework/logger/logger";
+import { Logger } from "Asuna-agent-framework/logger/logger";
 import { pino } from "pino";
 
 // Create a custom pino logger
