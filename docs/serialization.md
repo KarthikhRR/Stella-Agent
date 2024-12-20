@@ -2,7 +2,7 @@
 
 > [!TIP]
 >
-> Location within the framework `bee-agent-framework/serializer`.
+> Location within the framework `asuna-agent-framework/serializer`.
 
 Serialization is a process of converting complex data structures or objects into a format that can be easily stored, transmitted, and reconstructed later.
 Serialization is a difficult task, and JavaScript does not provide a magic tool to serialize and deserialize an arbitrary input. That is why we made such one.
@@ -10,7 +10,7 @@ Serialization is a difficult task, and JavaScript does not provide a magic tool 
 <!-- embedme examples/serialization/base.ts -->
 
 ```ts
-import { Serializer } from "bee-agent-framework/serializer/serializer";
+import { Serializer } from "asuna-agent-framework/serializer/serializer";
 
 const original = new Date("2024-01-01T00:00:00.000Z");
 const serialized = Serializer.serialize(original);
@@ -41,9 +41,9 @@ See the direct usage on the following memory example.
 <!-- embedme examples/serialization/memory.ts -->
 
 ```ts
-import { TokenMemory } from "bee-agent-framework/memory/tokenMemory";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
-import { BaseMessage } from "bee-agent-framework/llms/primitives/message";
+import { TokenMemory } from "asuna-agent-framework/memory/tokenMemory";
+import { OllamaChatLLM } from "asuna-agent-framework/adapters/ollama/chat";
+import { BaseMessage } from "asuna-agent-framework/llms/primitives/message";
 
 const llm = new OllamaChatLLM();
 const memory = new TokenMemory({ llm });
@@ -60,7 +60,7 @@ const deserialized = TokenMemory.fromSerialized(serialized);
 await deserialized.add(
   BaseMessage.of({
     role: "assistant",
-    text: "Bee",
+    text: "asuna",
   }),
 );
 ```
@@ -75,7 +75,7 @@ However, you can tell the `Serializer` how to work with your class by registerin
 <!-- embedme examples/serialization/customExternal.ts -->
 
 ```ts
-import { Serializer } from "bee-agent-framework/serializer/serializer";
+import { Serializer } from "asuna-agent-framework/serializer/serializer";
 
 class MyClass {
   constructor(public readonly name: string) {}
@@ -94,7 +94,7 @@ Serializer.register(MyClass, {
   },
 });
 
-const instance = new MyClass("Bee");
+const instance = new MyClass("asuna");
 const serialized = Serializer.serialize(instance);
 const deserialized = Serializer.deserialize<MyClass>(serialized);
 
@@ -109,7 +109,7 @@ or you can extend the `Serializable` class.
 <!-- embedme examples/serialization/customInternal.ts -->
 
 ```ts
-import { Serializable } from "bee-agent-framework/internals/serializable";
+import { Serializable } from "asuna-agent-framework/internals/serializable";
 
 class MyClass extends Serializable {
   constructor(public readonly name: string) {
@@ -132,7 +132,7 @@ class MyClass extends Serializable {
   }
 }
 
-const instance = new MyClass("Bee");
+const instance = new MyClass("asuna");
 const serialized = instance.serialize();
 const deserialized = MyClass.fromSerialized(serialized);
 
@@ -151,8 +151,8 @@ _Source: [examples/serialization/customInternal.ts](/examples/serialization/cust
 <!-- embedme examples/serialization/context.ts -->
 
 ```ts
-import { UnconstrainedMemory } from "bee-agent-framework/memory/unconstrainedMemory";
-import { BaseMessage } from "bee-agent-framework/llms/primitives/message";
+import { UnconstrainedMemory } from "asuna-agent-framework/memory/unconstrainedMemory";
+import { BaseMessage } from "asuna-agent-framework/llms/primitives/message";
 
 // String containing serialized `UnconstrainedMemory` instance with one message in it.
 const serialized = `{"__version":"0.0.0","__root":{"__serializer":true,"__class":"Object","__ref":"5","__value":{"target":"UnconstrainedMemory","snapshot":{"__serializer":true,"__class":"Object","__ref":"4","__value":{"messages":{"__serializer":true,"__class":"Array","__ref":"1","__value":[{"__serializer":true,"__class":"BaseMessage","__ref":"2","__value":{"role":"user","text":"Serialization is amazing, isn't?","meta":{"__serializer":true,"__class":"Undefined","__ref":"3"}}}]}}}}}}`;
