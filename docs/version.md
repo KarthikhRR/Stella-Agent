@@ -2,12 +2,12 @@
 
 > [!TIP]
 >
-> Location within the framework `bee-agent-framework/version`.
+> Location within the framework `asuna-agent-framework/version`.
 
 <!-- embedme examples/version.ts -->
 
 ```ts
-import { Version } from "bee-agent-framework/version";
+import { Version } from "asuna-agent-framework/version";
 
 console.log(`Framework version is ${Version}`);
 ```
