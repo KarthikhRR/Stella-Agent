@@ -25,13 +25,6 @@ The Asuna Agent Framework makes it easy to build scalable agent-based workflows 
 
 ## Getting started
 
-> [!TIP]
->
-> 🚀 Would you like a fully set-up TypeScript project with Asuna, Code Interpreter, and Observability? Check out our [Asuna Framework Starter](https://github.com/i-am-Asuna/Asuna-agent-framework-starter).
-
-> [!TIP]
->
-> 🚀 Would you like to work with Asuna in your web browser? See [Asuna Stack](https://github.com/i-am-Asuna/Asuna-stack)
 
 ### Installation
 
