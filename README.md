@@ -122,10 +122,6 @@ The source directory (`src`) provides numerous modules that one can use.
 
 To see more in-depth explanation see [overview](/docs/overview.md).
 
-## Tutorials
-
-🚧 Coming soon 🚧
-
 ## Roadmap
 
 - Asuna agent performance optimization with additional models
@@ -139,13 +135,6 @@ The Asuna Agent Framework is an open-source project and we ❤️ contributions.
 
 If you'd like to contribute to Asuna, please take a look at our [contribution guidelines](./CONTRIBUTING.md).
 
-### Bugs
-
-We are using [GitHub Issues](https://github.com/i-am-Asuna/Asuna-agent-framework/issues) to manage our public bugs. We keep a close eye on this, so before filing a new issue, please check to make sure it hasn't already Asunan logged.
-
-### Code of conduct
-
-This project and everyone participating in it are governed by the [Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please read the [full text](./CODE_OF_CONDUCT.md) so that you can read which actions may or may not be tolerated.
 
 ## Legal notice
 
