@@ -1,7 +1,3 @@
-<p align="center">
-    <img alt="Bee Framework logo" src="/docs/assets/asuna.png" height="128">
-    <h1 align="center">Bee Agent Framework</h1>
-</p>
 
 <p align="center">
   <img align="cener" alt="Project Status: Alpha" src="https://img.shields.io/badge/Status-Alpha-red">
