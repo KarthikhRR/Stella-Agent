@@ -73,17 +73,6 @@ const response = await agent
 console.log(`Agent 🤖 : `, response.result.text);
 ```
 
-➡️ See a more [advanced example](/examples/agents/Asuna.ts).
-
-➡️ you can run this example after local installation, using the command `yarn start examples/agents/simple.ts`
-
-> [!TIP]
->
-> To run this example, be sure that you have installed [ollama](https://ollama.com) with the [llama3.1](https://ollama.com/library/llama3.1) model downloaded.
-
-> [!TIP]
->
-> Documentation is available at https://i-am-Asuna.github.io/Asuna-agent-framework/
 
 ### Local Installation
 
