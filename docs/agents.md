@@ -4,7 +4,7 @@ AI agents built on large language models control the path to solving a complex p
 
 We recommend reading the [following article](https://research.ibm.com/blog/what-are-ai-agents-llm) to learn more.
 
-## Implementation in Bee Agent Framework
+## Implementation in Asuna Agent Framework
 
 An agent can be thought of as a program powered by LLM. The LLM generates structured output that is then processed by your program.
 
@@ -13,9 +13,9 @@ Before the agent determines the final answer, it performs a series of `steps`. A
 
 Steps are grouped in a `iteration`, and every update (either complete or partial) is emitted to the user.
 
-### Bee Agent
+### Asuna Agent
 
-Our Bee Agent is based on the `ReAct` ([Reason and Act](https://arxiv.org/abs/2210.03629)) approach.
+Our Asuna Agent is based on the `ReAct` ([Reason and Act](https://arxiv.org/abs/2210.03629)) approach.
 
 Hence, the agent in each iteration produces one of the following outputs.
 
@@ -46,15 +46,15 @@ For more complex tasks, the agent may do way more iterations.
 In the following example, we will transform the knowledge gained into code.
 
 ```ts
-import { BeeAgent } from "bee-agent-framework/agents/bee/agent";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
-import { UnconstrainedMemory } from "bee-agent-framework/memory/unconstrainedMemory";
-import { OpenMeteoTool } from "bee-agent-framework/tools/weather/openMeteo";
+import { AsunaAgent } from "Asuna-agent-framework/agents/Asuna/agent";
+import { OllamaChatLLM } from "Asuna-agent-framework/adapters/ollama/chat";
+import { UnconstrainedMemory } from "Asuna-agent-framework/memory/unconstrainedMemory";
+import { OpenMeteoTool } from "Asuna-agent-framework/tools/weather/openMeteo";
 
-const agent = new BeeAgent({
-  llm: new OllamaChatLLM(), // for more explore 'bee-agent-framework/adapters'
-  memory: new UnconstrainedMemory(), // for more explore 'bee-agent-framework/memory'
-  tools: [new OpenMeteoTool()], // for more explore 'bee-agent-framework/tools'
+const agent = new AsunaAgent({
+  llm: new OllamaChatLLM(), // for more explore 'Asuna-agent-framework/adapters'
+  memory: new UnconstrainedMemory(), // for more explore 'Asuna-agent-framework/memory'
+  tools: [new OpenMeteoTool()], // for more explore 'Asuna-agent-framework/tools'
 });
 
 const response = await agent
@@ -134,7 +134,7 @@ The agent uses the following prompt templates.
 
 8. **Invalid Schema Error** (output from LLM cannot be processed)
 
-Please refer to the [following example](/examples/agents/bee_advanced.ts) to see how to modify them.
+Please refer to the [following example](/examples/agents/Asuna_advanced.ts) to see how to modify them.
 
 ## Creating your own agent
 
