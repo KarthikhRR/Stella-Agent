@@ -2,9 +2,9 @@
 
 > [!TIP]
 >
-> Location for concrete implementations within the framework `bee-agent-framework/adapters`.
+> Location for concrete implementations within the framework `asuna-agent-framework/adapters`.
 >
-> Location for base abstraction within the framework `bee-agent-framework/llms`.
+> Location for base abstraction within the framework `asuna-agent-framework/llms`.
 
 A Large Language Model (LLM) is an AI designed to understand and generate human-like text.
 Trained on extensive text data, LLMs learn language patterns, grammar, context, and basic reasoning to perform tasks like text completion, translation, summarization, and answering questions.
@@ -24,7 +24,7 @@ To unify differences between various APIs, the framework defines a common interf
 | `AWS Bedrock`                                                             | ❌                         | ✅                                            | ⚠️ (JSON only) - model specific          |
 | `VertexAI`                                                                | ✅                         | ✅                                            | ⚠️ (JSON only)                           |
 | `BAM (Internal)`                                                          | ✅                         | ⚠️ (model specific template must be provided) | ✅                                       |
-| ➕ [Request](https://github.com/i-am-bee/bee-agent-framework/discussions) |                            |                                               |                                          |
+| ➕ [Request](https://github.com/i-am-asuna/asuna-agent-framework/discussions) |                            |                                               |                                          |
 
 All providers' examples can be found in [examples/llms/providers](/examples/llms/providers).
 
@@ -39,7 +39,7 @@ Are you interested in creating your own adapter? Jump to the [adding a new provi
 ```ts
 import "dotenv/config.js";
 import { createConsoleReader } from "examples/helpers/io.js";
-import { WatsonXLLM } from "bee-agent-framework/adapters/watsonx/llm";
+import { WatsonXLLM } from "asuna-agent-framework/adapters/watsonx/llm";
 
 const llm = new WatsonXLLM({
   modelId: "google/flan-ul2",
@@ -77,8 +77,8 @@ _Source: [examples/llms/text.ts](/examples/llms/text.ts)_
 ```ts
 import "dotenv/config.js";
 import { createConsoleReader } from "examples/helpers/io.js";
-import { BaseMessage, Role } from "bee-agent-framework/llms/primitives/message";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
+import { BaseMessage, Role } from "asuna-agent-framework/llms/primitives/message";
+import { OllamaChatLLM } from "asuna-agent-framework/adapters/ollama/chat";
 
 const llm = new OllamaChatLLM();
 
@@ -115,8 +115,8 @@ _Source: [examples/llms/chat.ts](/examples/llms/chat.ts)_
 ```ts
 import "dotenv/config.js";
 import { createConsoleReader } from "examples/helpers/io.js";
-import { BaseMessage, Role } from "bee-agent-framework/llms/primitives/message";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
+import { BaseMessage, Role } from "asuna-agent-framework/llms/primitives/message";
+import { OllamaChatLLM } from "asuna-agent-framework/adapters/ollama/chat";
 
 const llm = new OllamaChatLLM();
 
@@ -144,8 +144,8 @@ _Source: [examples/llms/chatStream.ts](/examples/llms/chatStream.ts)_
 ```ts
 import "dotenv/config.js";
 import { createConsoleReader } from "examples/helpers/io.js";
-import { BaseMessage, Role } from "bee-agent-framework/llms/primitives/message";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
+import { BaseMessage, Role } from "asuna-agent-framework/llms/primitives/message";
+import { OllamaChatLLM } from "asuna-agent-framework/adapters/ollama/chat";
 
 const llm = new OllamaChatLLM();
 
@@ -185,9 +185,9 @@ _Source: [examples/llms/chatCallback.ts](/examples/llms/chatCallback.ts)_
 ```ts
 import "dotenv/config.js";
 import { z } from "zod";
-import { BaseMessage, Role } from "bee-agent-framework/llms/primitives/message";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
-import { JsonDriver } from "bee-agent-framework/llms/drivers/json";
+import { BaseMessage, Role } from "asuna-agent-framework/llms/primitives/message";
+import { OllamaChatLLM } from "asuna-agent-framework/adapters/ollama/chat";
+import { JsonDriver } from "asuna-agent-framework/llms/drivers/json";
 
 const llm = new OllamaChatLLM();
 const driver = new JsonDriver(llm);
@@ -218,11 +218,11 @@ _Source: [examples/llms/structured.ts](/examples/llms/structured.ts)_
 
 ## Adding a new provider (adapter)
 
-To use an inference provider that is not mentioned in our providers list feel free to [create a request](https://github.com/i-am-bee/bee-agent-framework/discussions).
+To use an inference provider that is not mentioned in our providers list feel free to [create a request](https://github.com/i-am-asuna/asuna-agent-framework/discussions).
 
 If approved and you want to create it on your own, you must do the following things. Let's assume the name of your provider is `Custom.`
 
-- Base location within the framework: `bee-agent-framework/adapters/custom`
+- Base location within the framework: `asuna-agent-framework/adapters/custom`
   - Text LLM (filename): `llm.ts` ([example implementation](/examples/llms/providers/customProvider.ts))
   - Chat LLM (filename): `chat.ts` ([example implementation](/examples/llms/providers/customChatProvider.ts))
 
