@@ -1,6 +1,6 @@
-# OpenTelemetry Instrumentation in Bee-Agent-Framework
+# OpenTelemetry Instrumentation in Asuna-Agent-Framework
 
-This document provides an overview of the OpenTelemetry instrumentation setup in the Bee-Agent-Framework.
+This document provides an overview of the OpenTelemetry instrumentation setup in the Asuna-Agent-Framework.
 The implementation is designed to [create telemetry spans](https://opentelemetry.io/docs/languages/js/instrumentation/#create-spans) for observability when instrumentation is enabled.
 
 ## Overview
@@ -16,16 +16,16 @@ Follow the official OpenTelemetry [Node.js Getting Started Guide](https://opente
 
 ### Environment Variable
 
-Use the environment variable `BEE_FRAMEWORK_INSTRUMENTATION_ENABLED` to enable or disable instrumentation.
+Use the environment variable `Asuna_FRAMEWORK_INSTRUMENTATION_ENABLED` to enable or disable instrumentation.
 
 ```bash
 # Enable instrumentation
-export BEE_FRAMEWORK_INSTRUMENTATION_ENABLED=true
+export Asuna_FRAMEWORK_INSTRUMENTATION_ENABLED=true
 # Ignore sensitive keys from collected events data
 export INSTRUMENTATION_IGNORED_KEYS="apiToken,accessToken"
 ```
 
-If `BEE_FRAMEWORK_INSTRUMENTATION_ENABLED` is false or unset, the framework will run without instrumentation.
+If `Asuna_FRAMEWORK_INSTRUMENTATION_ENABLED` is false or unset, the framework will run without instrumentation.
 
 ## Creating Custom Spans
 
@@ -36,7 +36,7 @@ Example of creating a span:
 ```ts
 import { trace } from "@opentelemetry/api";
 
-const tracer = trace.getTracer("bee-agent-framework");
+const tracer = trace.getTracer("Asuna-agent-framework");
 
 function exampleFunction() {
   const span = tracer.startSpan("example-function-span");
@@ -66,11 +66,11 @@ nvm use
 
 ### Agent instrumentation
 
-Running the Instrumented Application (`examples/agents/bee_instrumentation.js`) file.
+Running the Instrumented Application (`examples/agents/Asuna_instrumentation.js`) file.
 
 ```bash
 ## the telemetry example is run on built js files
-yarn start:telemetry ./examples/agents/bee_instrumentation.ts
+yarn start:telemetry ./examples/agents/Asuna_instrumentation.ts
 ```
 
 ### LLM instrumentation
