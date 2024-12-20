@@ -2,7 +2,7 @@
 
 > [!TIP]
 >
-> Location within the framework `bee-agent-framework/cache`.
+> Location within the framework `Asuna-agent-framework/cache`.
 
 Caching is a process used to temporarily store copies of data or computations in a cache (a storage location) to facilitate faster access upon future requests. The primary purpose of caching is to improve the efficiency and performance of systems by reducing the need to repeatedly fetch or compute the same data from a slower or more resource-intensive source.
 
@@ -13,7 +13,7 @@ Caching is a process used to temporarily store copies of data or computations in
 <!-- embedme examples/cache/unconstrainedCache.ts -->
 
 ```ts
-import { UnconstrainedCache } from "bee-agent-framework/cache/unconstrainedCache";
+import { UnconstrainedCache } from "Asuna-agent-framework/cache/unconstrainedCache";
 
 const cache = new UnconstrainedCache();
 
@@ -48,7 +48,7 @@ _Source: [examples/cache/unconstrainedCache.ts](/examples/cache/unconstrainedCac
 <!-- embedme examples/cache/unconstrainedCacheFunction.ts -->
 
 ```ts
-import { UnconstrainedCache } from "bee-agent-framework/cache/unconstrainedCache";
+import { UnconstrainedCache } from "Asuna-agent-framework/cache/unconstrainedCache";
 
 const cache = new UnconstrainedCache<number>();
 
@@ -76,8 +76,8 @@ _Source: [examples/cache/unconstrainedCacheFunction.ts](/examples/cache/unconstr
 <!-- embedme examples/cache/toolCache.ts -->
 
 ```ts
-import { SlidingCache } from "bee-agent-framework/cache/slidingCache";
-import { WikipediaTool } from "bee-agent-framework/tools/search/wikipedia";
+import { SlidingCache } from "Asuna-agent-framework/cache/slidingCache";
+import { WikipediaTool } from "Asuna-agent-framework/tools/search/wikipedia";
 
 const ddg = new WikipediaTool({
   cache: new SlidingCache({
@@ -103,9 +103,9 @@ _Source: [examples/cache/toolCache.ts](/examples/cache/toolCache.ts)_
 <!-- embedme examples/cache/llmCache.ts -->
 
 ```ts
-import { SlidingCache } from "bee-agent-framework/cache/slidingCache";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
-import { BaseMessage } from "bee-agent-framework/llms/primitives/message";
+import { SlidingCache } from "Asuna-agent-framework/cache/slidingCache";
+import { OllamaChatLLM } from "Asuna-agent-framework/adapters/ollama/chat";
+import { BaseMessage } from "Asuna-agent-framework/llms/primitives/message";
 
 const llm = new OllamaChatLLM({
   modelId: "llama3.1",
@@ -141,7 +141,7 @@ The framework provides multiple out-of-the-box cache implementations.
 Unlimited in size.
 
 ```ts
-import { UnconstrainedCache } from "bee-agent-framework/cache/unconstrainedCache";
+import { UnconstrainedCache } from "Asuna-agent-framework/cache/unconstrainedCache";
 const cache = new UnconstrainedCache();
 
 await cache.set("a", 1);
@@ -156,7 +156,7 @@ Keeps last `k` entries in the memory. The oldest ones are deleted.
 <!-- embedme examples/cache/slidingCache.ts -->
 
 ```ts
-import { SlidingCache } from "bee-agent-framework/cache/slidingCache";
+import { SlidingCache } from "Asuna-agent-framework/cache/slidingCache";
 
 const cache = new SlidingCache<number>({
   size: 3, // (required) number of items that can be live in the cache at a single moment
@@ -182,11 +182,11 @@ You have to provide a location where the cache is persisted.
 <!-- embedme examples/cache/fileCache.ts -->
 
 ```ts
-import { FileCache } from "bee-agent-framework/cache/fileCache";
+import { FileCache } from "Asuna-agent-framework/cache/fileCache";
 import * as os from "node:os";
 
 const cache = new FileCache({
-  fullPath: `${os.tmpdir()}/bee_file_cache_${Date.now()}.json`,
+  fullPath: `${os.tmpdir()}/Asuna_file_cache_${Date.now()}.json`,
 });
 console.log(`Saving cache to "${cache.source}"`);
 await cache.set("abc", { firstName: "John", lastName: "Doe" });
@@ -207,15 +207,15 @@ _Source: [examples/cache/fileCache.ts](/examples/cache/fileCache.ts)_
 <!-- embedme examples/cache/fileCacheCustomProvider.ts -->
 
 ```ts
-import { FileCache } from "bee-agent-framework/cache/fileCache";
-import { UnconstrainedCache } from "bee-agent-framework/cache/unconstrainedCache";
+import { FileCache } from "Asuna-agent-framework/cache/fileCache";
+import { UnconstrainedCache } from "Asuna-agent-framework/cache/unconstrainedCache";
 import os from "node:os";
 
 const memoryCache = new UnconstrainedCache<number>();
 await memoryCache.set("a", 1);
 
 const fileCache = await FileCache.fromProvider(memoryCache, {
-  fullPath: `${os.tmpdir()}/bee_file_cache.json`,
+  fullPath: `${os.tmpdir()}/Asuna_file_cache.json`,
 });
 console.log(`Saving cache to "${fileCache.source}"`);
 console.log(await fileCache.get("a")); // 1
@@ -234,7 +234,7 @@ The reason for implementing is to enable [Null object pattern](https://en.wikipe
 <!-- embedme examples/cache/decoratorCache.ts -->
 
 ```ts
-import { Cache } from "bee-agent-framework/cache/decoratorCache";
+import { Cache } from "Asuna-agent-framework/cache/decoratorCache";
 
 class Generator {
   @Cache()
@@ -257,7 +257,7 @@ _Source: [examples/cache/decoratorCache.ts](/examples/cache/decoratorCache.ts)_
 <!-- embedme examples/cache/decoratorCacheComplex.ts -->
 
 ```ts
-import { Cache, SingletonCacheKeyFn } from "bee-agent-framework/cache/decoratorCache";
+import { Cache, SingletonCacheKeyFn } from "Asuna-agent-framework/cache/decoratorCache";
 
 class MyService {
   @Cache({
@@ -301,7 +301,7 @@ provides a way how to do caching on a function level.
 <!-- embedme examples/cache/cacheFn.ts -->
 
 ```ts
-import { CacheFn } from "bee-agent-framework/cache/decoratorCache";
+import { CacheFn } from "Asuna-agent-framework/cache/decoratorCache";
 import { setTimeout } from "node:timers/promises";
 
 const getSecret = CacheFn.create(
@@ -333,8 +333,8 @@ To create your cache implementation, you must implement the `BaseCache` class.
 <!-- embedme examples/cache/custom.ts -->
 
 ```ts
-import { BaseCache } from "bee-agent-framework/cache/base";
-import { NotImplementedError } from "bee-agent-framework/errors";
+import { BaseCache } from "Asuna-agent-framework/cache/base";
+import { NotImplementedError } from "Asuna-agent-framework/errors";
 
 export class CustomCache<T> extends BaseCache<T> {
   size(): Promise<number> {
