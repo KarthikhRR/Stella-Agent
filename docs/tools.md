@@ -2,7 +2,7 @@
 
 > [!TIP]
 >
-> Location within the framework `bee-agent-framework/tools`.
+> Location within the framework `asuna-agent-framework/tools`.
 
 Tools in the context of an agent refer to additional functionalities or capabilities integrated with the agent to perform specific tasks beyond text processing.
 
@@ -25,7 +25,7 @@ These tools extend the agent's abilities, allowing it to interact with external 
 | `WebCrawlerTool`                                                          | Retrieve content of an arbitrary website.                                                                     |
 | `OpenMeteoTool`                                                           | Retrieve current, previous, or upcoming weather for a given destination.                                      |
 | `MilvusDatabaseTool`                                                      | Perform retrieval queries (search, insert, delete, manage collections) against a MilvusDatabaseTool database. |
-| ➕ [Request](https://github.com/i-am-bee/bee-agent-framework/discussions) |                                                                                                               |
+| ➕ [Request](https://github.com/i-am-asuna/asuna-agent-framework/discussions) |                                                                                                               |
 
 All examples can be found [here](/examples/tools).
 
@@ -40,7 +40,7 @@ All examples can be found [here](/examples/tools).
 <!-- embedme examples/tools/base.ts -->
 
 ```ts
-import { OpenMeteoTool } from "bee-agent-framework/tools/weather/openMeteo";
+import { OpenMeteoTool } from "asuna-agent-framework/tools/weather/openMeteo";
 
 const tool = new OpenMeteoTool();
 const result = await tool.run({
@@ -58,8 +58,8 @@ _Source: [examples/tools/base.ts](/examples/tools/base.ts)_
 <!-- embedme examples/tools/advanced.ts -->
 
 ```ts
-import { OpenMeteoTool } from "bee-agent-framework/tools/weather/openMeteo";
-import { UnconstrainedCache } from "bee-agent-framework/cache/unconstrainedCache";
+import { OpenMeteoTool } from "asuna-agent-framework/tools/weather/openMeteo";
+import { UnconstrainedCache } from "asuna-agent-framework/cache/unconstrainedCache";
 
 const tool = new OpenMeteoTool({
   cache: new UnconstrainedCache(),
@@ -95,12 +95,12 @@ _Source: [examples/tools/advanced.ts](/examples/tools/advanced.ts)_
 <!-- embedme examples/tools/agent.ts -->
 
 ```ts
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
-import { ArXivTool } from "bee-agent-framework/tools/arxiv";
-import { BeeAgent } from "bee-agent-framework/agents/bee/agent";
-import { UnconstrainedMemory } from "bee-agent-framework/memory/unconstrainedMemory";
+import { OllamaChatLLM } from "asuna-agent-framework/adapters/ollama/chat";
+import { ArXivTool } from "asuna-agent-framework/tools/arxiv";
+import { asunaAgent } from "asuna-agent-framework/agents/asuna/agent";
+import { UnconstrainedMemory } from "asuna-agent-framework/memory/unconstrainedMemory";
 
-const agent = new BeeAgent({
+const agent = new asunaAgent({
   llm: new OllamaChatLLM(),
   memory: new UnconstrainedMemory(),
   tools: [new ArXivTool()],
@@ -132,10 +132,10 @@ import {
   Tool,
   ToolInput,
   ToolInputValidationError,
-} from "bee-agent-framework/tools/base";
+} from "asuna-agent-framework/tools/base";
 import { z } from "zod";
 import { randomInteger } from "remeda";
-import { Emitter } from "bee-agent-framework/emitter/emitter";
+import { Emitter } from "asuna-agent-framework/emitter/emitter";
 
 export class RiddleTool extends Tool<StringToolOutput> {
   name = "Riddle";
@@ -208,11 +208,11 @@ import {
   JSONToolOutput,
   ToolError,
   ToolEmitter,
-} from "bee-agent-framework/tools/base";
+} from "asuna-agent-framework/tools/base";
 import { z } from "zod";
-import { createURLParams } from "bee-agent-framework/internals/fetcher";
-import { GetRunContext } from "bee-agent-framework/context";
-import { Callback, Emitter } from "bee-agent-framework/emitter/emitter";
+import { createURLParams } from "asuna-agent-framework/internals/fetcher";
+import { GetRunContext } from "asuna-agent-framework/context";
+import { Callback, Emitter } from "asuna-agent-framework/emitter/emitter";
 
 type ToolOptions = BaseToolOptions & { maxResults?: number };
 type ToolRunOptions = BaseToolRunOptions;
@@ -384,7 +384,7 @@ The `DynamicTool` allows you to create a tool without extending the base tool cl
 <!-- embedme examples/tools/custom/dynamic.ts -->
 
 ```ts
-import { DynamicTool, StringToolOutput } from "bee-agent-framework/tools/base";
+import { DynamicTool, StringToolOutput } from "asuna-agent-framework/tools/base";
 import { z } from "zod";
 
 const tool = new DynamicTool({
@@ -418,7 +418,7 @@ If you want to use the Python function, use the [`CustomTool`](/src/tools/custom
 
 ```ts
 import "dotenv/config";
-import { CustomTool } from "bee-agent-framework/tools/custom";
+import { CustomTool } from "asuna-agent-framework/tools/custom";
 
 const customTool = await CustomTool.fromSourceCode(
   {
