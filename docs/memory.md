@@ -2,7 +2,7 @@
 
 > [!TIP]
 >
-> Location within the framework `bee-agent-framework/memory`.
+> Location within the framework `asuna-agent-framework/memory`.
 
 Memory in the context of an agent refers to the system's capability to store, recall, and utilize information from past interactions. This enables the agent to maintain context over time, improve its responses based on previous exchanges, and provide a more personalized experience.
 
@@ -13,8 +13,8 @@ Memory in the context of an agent refers to the system's capability to store, re
 <!-- embedme examples/memory/base.ts -->
 
 ```ts
-import { UnconstrainedMemory } from "bee-agent-framework/memory/unconstrainedMemory";
-import { BaseMessage } from "bee-agent-framework/llms/primitives/message";
+import { UnconstrainedMemory } from "asuna-agent-framework/memory/unconstrainedMemory";
+import { BaseMessage } from "asuna-agent-framework/llms/primitives/message";
 
 const memory = new UnconstrainedMemory();
 
@@ -45,9 +45,9 @@ _Source: [examples/memory/base.ts](/examples/memory/base.ts)_
 <!-- embedme examples/memory/llmMemory.ts -->
 
 ```ts
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
-import { UnconstrainedMemory } from "bee-agent-framework/memory/unconstrainedMemory";
-import { BaseMessage } from "bee-agent-framework/llms/primitives/message";
+import { OllamaChatLLM } from "asuna-agent-framework/adapters/ollama/chat";
+import { UnconstrainedMemory } from "asuna-agent-framework/memory/unconstrainedMemory";
+import { BaseMessage } from "asuna-agent-framework/llms/primitives/message";
 
 const memory = new UnconstrainedMemory();
 await memory.addMany([
@@ -80,11 +80,11 @@ _Source: [examples/memory/llmMemory.ts](/examples/memory/llmMemory.ts)_
 <!-- embedme examples/memory/agentMemory.ts -->
 
 ```ts
-import { UnconstrainedMemory } from "bee-agent-framework/memory/unconstrainedMemory";
-import { BeeAgent } from "bee-agent-framework/agents/bee/agent";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
+import { UnconstrainedMemory } from "asuna-agent-framework/memory/unconstrainedMemory";
+import { asunaAgent } from "asuna-agent-framework/agents/asuna/agent";
+import { OllamaChatLLM } from "asuna-agent-framework/adapters/ollama/chat";
 
-const agent = new BeeAgent({
+const agent = new asunaAgent({
   memory: new UnconstrainedMemory(),
   llm: new OllamaChatLLM(),
   tools: [],
@@ -108,7 +108,7 @@ _Source: [examples/memory/agentMemory.ts](/examples/memory/agentMemory.ts)_
 
 > [!NOTE]
 >
-> Bee Agent internally uses `TokenMemory` to store intermediate steps for a given run.
+> asuna Agent internally uses `TokenMemory` to store intermediate steps for a given run.
 
 > [!NOTE]
 >
@@ -125,8 +125,8 @@ Unlimited in size.
 <!-- embedme examples/memory/unconstrainedMemory.ts -->
 
 ```ts
-import { UnconstrainedMemory } from "bee-agent-framework/memory/unconstrainedMemory";
-import { BaseMessage } from "bee-agent-framework/llms/primitives/message";
+import { UnconstrainedMemory } from "asuna-agent-framework/memory/unconstrainedMemory";
+import { BaseMessage } from "asuna-agent-framework/llms/primitives/message";
 
 const memory = new UnconstrainedMemory();
 await memory.add(
@@ -150,8 +150,8 @@ Keeps last `k` entries in the memory. The oldest ones are deleted (unless specif
 <!-- embedme examples/memory/slidingMemory.ts -->
 
 ```ts
-import { SlidingMemory } from "bee-agent-framework/memory/slidingMemory";
-import { BaseMessage } from "bee-agent-framework/llms/primitives/message";
+import { SlidingMemory } from "asuna-agent-framework/memory/slidingMemory";
+import { BaseMessage } from "asuna-agent-framework/llms/primitives/message";
 
 const memory = new SlidingMemory({
   size: 3, // (required) number of messages that can be in the memory at a single moment
@@ -183,9 +183,9 @@ If overflow occurs, the oldest message will be removed.
 <!-- embedme examples/memory/tokenMemory.ts -->
 
 ```ts
-import { TokenMemory } from "bee-agent-framework/memory/tokenMemory";
-import { BaseMessage } from "bee-agent-framework/llms/primitives/message";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
+import { TokenMemory } from "asuna-agent-framework/memory/tokenMemory";
+import { BaseMessage } from "asuna-agent-framework/llms/primitives/message";
+import { OllamaChatLLM } from "asuna-agent-framework/adapters/ollama/chat";
 
 const llm = new OllamaChatLLM();
 const memory = new TokenMemory({
@@ -220,9 +220,9 @@ Only a single summarization of the conversation is preserved. Summarization is u
 <!-- embedme examples/memory/summarizeMemory.ts -->
 
 ```ts
-import { BaseMessage } from "bee-agent-framework/llms/primitives/message";
-import { SummarizeMemory } from "bee-agent-framework/memory/summarizeMemory";
-import { OllamaChatLLM } from "bee-agent-framework/adapters/ollama/chat";
+import { BaseMessage } from "asuna-agent-framework/llms/primitives/message";
+import { SummarizeMemory } from "asuna-agent-framework/memory/summarizeMemory";
+import { OllamaChatLLM } from "asuna-agent-framework/adapters/ollama/chat";
 
 const memory = new SummarizeMemory({
   llm: new OllamaChatLLM({
@@ -255,9 +255,9 @@ To create your memory implementation, you must implement the `BaseMemory` class.
 <!-- embedme examples/memory/custom.ts -->
 
 ```ts
-import { BaseMemory } from "bee-agent-framework/memory/base";
-import { BaseMessage } from "bee-agent-framework/llms/primitives/message";
-import { NotImplementedError } from "bee-agent-framework/errors";
+import { BaseMemory } from "asuna-agent-framework/memory/base";
+import { BaseMessage } from "asuna-agent-framework/llms/primitives/message";
+import { NotImplementedError } from "asuna-agent-framework/errors";
 
 export class MyMemory extends BaseMemory {
   get messages(): readonly BaseMessage[] {
