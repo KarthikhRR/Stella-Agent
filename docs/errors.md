@@ -2,13 +2,13 @@
 
 > [!TIP]
 >
-> Location within the framework `bee-agent-framework/error`.
+> Location within the framework `Asuna-agent-framework/error`.
 
-Error handling is a critical part of any JavaScript application, especially when dealing with asynchronous operations, various error types, and error propagation across multiple layers. In the Bee Agent Framework, we provide a robust and consistent error-handling structure that ensures reliability and ease of debugging.
+Error handling is a critical part of any JavaScript application, especially when dealing with asynchronous operations, various error types, and error propagation across multiple layers. In the Asuna Agent Framework, we provide a robust and consistent error-handling structure that ensures reliability and ease of debugging.
 
 ## The `FrameworkError` class
 
-All errors thrown within the Bee Agent Framework extend from the base [FrameworkError](/src/errors.ts) class, which itself extends Node.js's native [AggregateError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError).
+All errors thrown within the Asuna Agent Framework extend from the base [FrameworkError](/src/errors.ts) class, which itself extends Node.js's native [AggregateError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError).
 
 Benefits of using `FrameworkError`:
 
@@ -18,12 +18,12 @@ Benefits of using `FrameworkError`:
 - **Native Support:** Built on native Node.js functionality, avoiding the need for additional dependencies while leveraging familiar mechanisms.
 - **Utility Functions:** Includes methods for formatting error stack traces and explanations, making them suitable for use with LLMs and other external tools.
 
-This structure ensures that users can trace the complete error history while clearly identifying any errors originating from the Bee Agent Framework.
+This structure ensures that users can trace the complete error history while clearly identifying any errors originating from the Asuna Agent Framework.
 
 <!-- embedme examples/errors/base.ts -->
 
 ```ts
-import { FrameworkError } from "bee-agent-framework/errors";
+import { FrameworkError } from "Asuna-agent-framework/errors";
 
 const error = new FrameworkError(
   "Function 'getUser' has failed.",
@@ -55,11 +55,11 @@ _Source: [examples/errors/base.ts](/examples/errors/base.ts)_
 
 > [!TIP]
 >
-> The `explain()` method is particularly useful for returning a simplified, human-readable error message to an LLM, as used by the Bee Agent.
+> The `explain()` method is particularly useful for returning a simplified, human-readable error message to an LLM, as used by the Asuna Agent.
 
 ## Specialized Error Classes
 
-The Bee Agent Framework extends FrameworkError to create specialized error classes for different components. This ensures that each part of the framework has clear and well-defined error types, improving debugging and error handling.
+The Asuna Agent Framework extends FrameworkError to create specialized error classes for different components. This ensures that each part of the framework has clear and well-defined error types, improving debugging and error handling.
 
 > [!TIP]
 >
@@ -72,8 +72,8 @@ When a tool encounters an error, it throws a `ToolError`, which extends `Framewo
 <!-- embedme examples/errors/tool.ts -->
 
 ```ts
-import { DynamicTool, ToolError } from "bee-agent-framework/tools/base";
-import { FrameworkError } from "bee-agent-framework/errors";
+import { DynamicTool, ToolError } from "Asuna-agent-framework/tools/base";
+import { FrameworkError } from "Asuna-agent-framework/errors";
 import { z } from "zod";
 
 const tool = new DynamicTool({
