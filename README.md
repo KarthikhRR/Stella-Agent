@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="Valo Framework logo" src="/docs/assets/Valopng.jpg" height="128">
+    <img alt="Valo Framework logo" src="/docs/assets/valo.jpg" height="128">
     <h1 align="center">Valo Agent Framework</h1>
 </p>
 
