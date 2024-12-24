@@ -1,31 +1,31 @@
 <p align="center">
-    <img alt="Valo Framework logo" src="/docs/assets/valo.jpg" height="128">
-    <h1 align="center">Valo Agent Framework</h1>
+    <img alt="Revent Framework logo" src="/docs/assets/Revent.jpg" height="128">
+    <h1 align="center">Revent Agent Framework</h1>
 </p>
 
 <p align="center">
   <!-- Twitter Badge -->
-  <a href="https://twitter.com/valo_agent">
-    <img src="https://img.shields.io/twitter/follow/valo_agent?style=social" alt="Twitter Follow"/>
+  <a href="https://twitter.com/Revent_agent">
+    <img src="https://img.shields.io/twitter/follow/Revent_agent?style=social" alt="Twitter Follow"/>
   </a>
 </p>
 
 
-The Valo Multi-Agent Framework  build scalable agent-based workflows with your model of choice. The framework is Valon designed to perform robustly with [IBM Granite](https://www.ibm.com/granite/docs/) and [Llama 3.x](https://ai.meta.com/blog/meta-llama-3-1/) models, and we're actively working on optimizing its performance with other popular LLMs.<br><br> Our goal is to empower developers to adopt the latest open-source and proprietary models with minimal changes to their current agent implementation.
+The Revent Multi-Agent Framework  build scalable agent-based workflows with your model of choice. The framework is Reventn designed to perform robustly with [IBM Granite](https://www.ibm.com/granite/docs/) and [Llama 3.x](https://ai.meta.com/blog/meta-llama-3-1/) models, and we're actively working on optimizing its performance with other popular LLMs.<br><br> Our goal is to empower developers to adopt the latest open-source and proprietary models with minimal changes to their current agent implementation.
 
 CA: 
 
 ## Key Features
 
-- 🤖 **AI agents**: Use our powerful [Valo agent](/docs/agents.md) refined for Llama 3.1 and Granite 3.0, or [build your own](/docs/agents.md).
+- 🤖 **AI agents**: Use our powerful [Revent agent](/docs/agents.md) refined for Llama 3.1 and Granite 3.0, or [build your own](/docs/agents.md).
 - 🛠️ **Tools**: Use our [built-in tools](/docs/tools.md) or [create your own](/docs/tools.md) in Javascript/Python.
-- 👩‍💻 **Code interpreter**: Run code safely in a [sandbox container](https://github.com/i-am-Valo/Valo-code-interpreter).
+- 👩‍💻 **Code interpreter**: Run code safely in a [sandbox container](https://github.com/i-am-Revent/Revent-code-interpreter).
 - 💾 **Memory**: Multiple [strategies](/docs/memory.md) to optimize token spend.
 - ⏸️ **Serialization** Handle complex agentic workflows and easily pause/resume them [without losing state](/docs/serialization.md).
 - 🔍 **Instrumentation**: Use [Instrumentation](/docs/instrumentation.md) based on [Emitter](/docs/emitter.md) to have full visibility of your agent’s inner workings.
 - 🎛️ **Production-level** control with [caching](/docs/cache.md) and [error handling](/docs/errors.md).
-- 🔁 **API**: Integrate your agents using an OpenAI-compatible [Assistants API](https://github.com/i-am-Valo/Valo-api) and [Python SDK](https://github.com/i-am-Valo/Valo-python-sdk).
-- 🖥️ **Chat UI**: Serve your agent to users in a [delightful UI](https://github.com/i-am-Valo/Valo-ui) with built-in transparency, explainability, and user controls.
+- 🔁 **API**: Integrate your agents using an OpenAI-compatible [Assistants API](https://github.com/i-am-Revent/Revent-api) and [Python SDK](https://github.com/i-am-Revent/Revent-python-sdk).
+- 🖥️ **Chat UI**: Serve your agent to users in a [delightful UI](https://github.com/i-am-Revent/Revent-ui) with built-in transparency, explainability, and user controls.
 - ... more on our [Roadmap](#roadmap)
 
 ## Getting started
@@ -34,30 +34,30 @@ CA:
 ### Installation
 
 ```shell
-npm install Valo-agent-framework
+npm install Revent-agent-framework
 ```
 
 or
 
 ```shell
-yarn add Valo-agent-framework
+yarn add Revent-agent-framework
 ```
 
 ### Example
 
 ```ts
-import { ValoAgent } from "Valo-agent-framework/agents/Valo/agent";
-import { OllamaChatLLM } from "Valo-agent-framework/adapters/ollama/chat";
-import { TokenMemory } from "Valo-agent-framework/memory/tokenMemory";
-import { DuckDuckGoSearchTool } from "Valo-agent-framework/tools/search/duckDuckGoSearch";
-import { OpenMeteoTool } from "Valo-agent-framework/tools/weather/openMeteo";
+import { ReventAgent } from "Revent-agent-framework/agents/Revent/agent";
+import { OllamaChatLLM } from "Revent-agent-framework/adapters/ollama/chat";
+import { TokenMemory } from "Revent-agent-framework/memory/tokenMemory";
+import { DuckDuckGoSearchTool } from "Revent-agent-framework/tools/search/duckDuckGoSearch";
+import { OpenMeteoTool } from "Revent-agent-framework/tools/weather/openMeteo";
 
 const llm = new OllamaChatLLM(); // default is llama3.1 (8B), it is recommended to use 70B model
 
-const agent = new ValoAgent({
-  llm, // for more explore 'Valo-agent-framework/adapters'
-  memory: new TokenMemory({ llm }), // for more explore 'Valo-agent-framework/memory'
-  tools: [new DuckDuckGoSearchTool(), new OpenMeteoTool()], // for more explore 'Valo-agent-framework/tools'
+const agent = new ReventAgent({
+  llm, // for more explore 'Revent-agent-framework/adapters'
+  memory: new TokenMemory({ llm }), // for more explore 'Revent-agent-framework/memory'
+  tools: [new DuckDuckGoSearchTool(), new OpenMeteoTool()], // for more explore 'Revent-agent-framework/tools'
 });
 
 const response = await agent
@@ -78,14 +78,14 @@ console.log(`Agent 🤖 : `, response.result.text);
 >
 > `yarn` should be installed via Corepack ([tutorial](https://yarnpkg.com/corepack))
 
-1. Clone the repository `git clone git@github.com:i-am-Valo/Valo-agent-framework`.
+1. Clone the repository `git clone git@github.com:i-am-Revent/Revent-agent-framework`.
 2. Install dependencies `yarn install --immutable && yarn prepare`.
 3. Create `.env` (from `.env.template`) and fill in missing values (if any).
-4. Start the agent `yarn run start:Valo` (it runs `/examples/agents/Valo.ts` file).
+4. Start the agent `yarn run start:Revent` (it runs `/examples/agents/Revent.ts` file).
 
 ➡️ All examples can be found in the [examples](/examples) directory.
 
-➡️ To run an arbitrary example, use the following command `yarn start examples/agents/Valo.ts` (just pass the appropriate path to the desired example).
+➡️ To run an arbitrary example, use the following command `yarn start examples/agents/Revent.ts` (just pass the appropriate path to the desired example).
 
 ### 📦 Modules
 
@@ -111,18 +111,18 @@ To see more in-depth explanation see [overview](/docs/overview.md).
 
 ## Roadmap
 
-- Valo agent performance optimization with additional models
+- Revent agent performance optimization with additional models
 - Examples, tutorials, and docs
 - Improvements to building custom agents
 - Multi-agent orchestration
 
 ## Contribution guidelines
 
-The Valo Agent Framework is an open-source project and we ❤️ contributions.
+The Revent Agent Framework is an open-source project and we ❤️ contributions.
 
-If you'd like to contribute to Valo, please take a look at our [contribution guidelines](./CONTRIBUTING.md).
+If you'd like to contribute to Revent, please take a look at our [contribution guidelines](./CONTRIBUTING.md).
 
 
 ## Legal notice
 
-All content in these repositories including code has Valon provided by IBM under the associated open source software license and IBM is under no obligation to provide enhancements, updates, or support. IBM developers produced this code as an open source project (not as an IBM product), and IBM makes no assertions as to the level of quality nor security, and will not be maintaining this code going forward.
+All content in these repositories including code has Reventn provided by IBM under the associated open source software license and IBM is under no obligation to provide enhancements, updates, or support. IBM developers produced this code as an open source project (not as an IBM product), and IBM makes no assertions as to the level of quality nor security, and will not be maintaining this code going forward.
