@@ -22,37 +22,37 @@ import { BaseMessage, Role } from "@/llms/primitives/message.js";
 import { AgentMeta } from "@/agents/types.js";
 import { Emitter } from "@/emitter/emitter.js";
 import {
-  BeeAgentTemplates,
-  BeeCallbacks,
-  BeeRunInput,
-  BeeRunOptions,
-  BeeRunOutput,
-} from "@/agents/bee/types.js";
+  HivemindAgentTemplates,
+  HivemindCallbacks,
+  HivemindRunInput,
+  HivemindRunOptions,
+  HivemindRunOutput,
+} from "@/agents/Hivemind/types.js";
 import { GetRunContext } from "@/context.js";
 import { assign } from "@/internals/helpers/object.js";
 import * as R from "remeda";
-import { BaseRunner } from "@/agents/bee/runners/base.js";
-import { GraniteRunner } from "@/agents/bee/runners/granite/runner.js";
-import { DefaultRunner } from "@/agents/bee/runners/default/runner.js";
+import { BaseRunner } from "@/agents/Hivemind/runners/base.js";
+import { GraniteRunner } from "@/agents/Hivemind/runners/granite/runner.js";
+import { DefaultRunner } from "@/agents/Hivemind/runners/default/runner.js";
 import { ValueError } from "@/errors.js";
 
-export interface BeeInput {
+export interface HivemindInput {
   llm: ChatLLM<ChatLLMOutput>;
   tools: AnyTool[];
   memory: BaseMemory;
   meta?: Omit<AgentMeta, "tools">;
-  templates?: Partial<BeeAgentTemplates>;
+  templates?: Partial<HivemindAgentTemplates>;
 }
 
-export class BeeAgent extends BaseAgent<BeeRunInput, BeeRunOutput, BeeRunOptions> {
-  public readonly emitter = Emitter.root.child<BeeCallbacks>({
-    namespace: ["agent", "bee"],
+export class HivemindAgent extends BaseAgent<HivemindRunInput, HivemindRunOutput, HivemindRunOptions> {
+  public readonly emitter = Emitter.root.child<HivemindCallbacks>({
+    namespace: ["agent", "Hivemind"],
     creator: this,
   });
 
   protected runner: new (...args: ConstructorParameters<typeof BaseRunner>) => BaseRunner;
 
-  constructor(protected readonly input: BeeInput) {
+  constructor(protected readonly input: HivemindInput) {
     super();
 
     const duplicate = input.tools.find((a, i, arr) =>
@@ -83,10 +83,10 @@ export class BeeAgent extends BaseAgent<BeeRunInput, BeeRunOutput, BeeRunOptions
     }
 
     return {
-      name: "Bee",
+      name: "Hivemind",
       tools,
       description:
-        "The Bee framework demonstrates its ability to auto-correct and adapt in real-time, improving the overall reliability and resilience of the system.",
+        "The Hivemind framework demonstrates its ability to auto-correct and adapt in real-time, improving the overall reliability and resilience of the system.",
       ...(tools.length > 0 && {
         extraDescription: [
           `Tools that I can use to accomplish given task.`,
@@ -97,10 +97,10 @@ export class BeeAgent extends BaseAgent<BeeRunInput, BeeRunOutput, BeeRunOptions
   }
 
   protected async _run(
-    input: BeeRunInput,
-    options: BeeRunOptions = {},
+    input: HivemindRunInput,
+    options: HivemindRunOptions = {},
     run: GetRunContext<typeof this>,
-  ): Promise<BeeRunOutput> {
+  ): Promise<HivemindRunOutput> {
     const runner = new this.runner(
       this.input,
       {
