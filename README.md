@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="Hivemind Framework logo" src="/docs/assets/Hivemind.png" height="128">
+    <img alt="Hivemind Framework logo" src="/docs/assets/hivemind.png" height="128">
     <h1 align="center">Hivemind Multi-Agent</h1>
 </p>
 
