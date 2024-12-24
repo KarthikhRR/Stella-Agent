@@ -14,18 +14,6 @@
 The Hivemind Multi-Agent Framework  build scalable agent-based workflows with your model of choice. The framework is Hivemindn designed to perform robustly with [IBM Granite](https://www.ibm.com/granite/docs/) and [Llama 3.x](https://ai.meta.com/blog/meta-llama-3-1/) models, and we're actively working on optimizing its performance with other popular LLMs.<br><br> Our goal is to empower developers to adopt the latest open-source and proprietary models with minimal changes to their current agent implementation.
 
 
-## Key Features
-
-- 🤖 **AI agents**: Use our powerful [Hivemind agent](/docs/agents.md) refined for Llama 3.1 and Granite 3.0, or [build your own](/docs/agents.md).
-- 🛠️ **Tools**: Use our [built-in tools](/docs/tools.md) or [create your own](/docs/tools.md) in Javascript/Python.
-- 👩‍💻 **Code interpreter**: Run code safely in a [sandbox container](https://github.com/i-am-Hivemind/Hivemind-code-interpreter).
-- 💾 **Memory**: Multiple [strategies](/docs/memory.md) to optimize token spend.
-- ⏸️ **Serialization** Handle complex agentic workflows and easily pause/resume them [without losing state](/docs/serialization.md).
-- 🔍 **Instrumentation**: Use [Instrumentation](/docs/instrumentation.md) based on [Emitter](/docs/emitter.md) to have full visibility of your agent’s inner workings.
-- 🎛️ **Production-level** control with [caching](/docs/cache.md) and [error handling](/docs/errors.md).
-- 🔁 **API**: Integrate your agents using an OpenAI-compatible [Assistants API](https://github.com/i-am-Hivemind/Hivemind-api) and [Python SDK](https://github.com/i-am-Hivemind/Hivemind-python-sdk).
-- 🖥️ **Chat UI**: Serve your agent to users in a [delightful UI](https://github.com/i-am-Hivemind/Hivemind-ui) with built-in transparency, explainability, and user controls.
-- ... more on our [Roadmap](#roadmap)
 
 ## Getting started
 
@@ -108,12 +96,18 @@ The source directory (`src`) provides numerous modules that one can use.
 
 To see more in-depth explanation see [overview](/docs/overview.md).
 
-## Roadmap
+## Key Features
 
-- Hivemind agent performance optimization with additional models
-- Examples, tutorials, and docs
-- Improvements to building custom agents
-- Multi-agent orchestration
+- 🤖 **AI agents**: Use our powerful [Hivemind agent](/docs/agents.md) refined for Llama 3.1 and Granite 3.0, or [build your own](/docs/agents.md).
+- 🛠️ **Tools**: Use our [built-in tools](/docs/tools.md) or [create your own](/docs/tools.md) in Javascript/Python.
+- 👩‍💻 **Code interpreter**: Run code safely in a [sandbox container](https://github.com/i-am-Hivemind/Hivemind-code-interpreter).
+- 💾 **Memory**: Multiple [strategies](/docs/memory.md) to optimize token spend.
+- ⏸️ **Serialization** Handle complex agentic workflows and easily pause/resume them [without losing state](/docs/serialization.md).
+- 🔍 **Instrumentation**: Use [Instrumentation](/docs/instrumentation.md) based on [Emitter](/docs/emitter.md) to have full visibility of your agent’s inner workings.
+- 🎛️ **Production-level** control with [caching](/docs/cache.md) and [error handling](/docs/errors.md).
+- 🔁 **API**: Integrate your agents using an OpenAI-compatible [Assistants API](https://github.com/i-am-Hivemind/Hivemind-api) and [Python SDK](https://github.com/i-am-Hivemind/Hivemind-python-sdk).
+- 🖥️ **Chat UI**: Serve your agent to users in a [delightful UI](https://github.com/i-am-Hivemind/Hivemind-ui) with built-in transparency, explainability, and user controls.
+
 
 ## Contribution guidelines
 
