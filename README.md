@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="Tungus Framework logo" src="/docs/assets/Tungus.png" height="128">
+    <img alt="Tungus Framework logo" src="/docs/assets/Tungus.jpg" height="128">
     <h1 align="center">Tungus Multi-Agent Framework</h1>
 </p>
 
