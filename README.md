@@ -111,13 +111,3 @@ To see more in-depth explanation see [overview](/docs/overview.md).
 - 🖥️ **Chat UI**: Serve your agent to users in a [delightful UI](https://github.com/i-am-Tungus/Tungus-ui) with built-in transparency, explainability, and user controls.
 
 
-## Contribution guidelines
-
-The Tungus Agent Framework is an open-source project and we ❤️ contributions.
-
-If you'd like to contribute to Tungus, please take a look at our [contribution guidelines](./CONTRIBUTING.md).
-
-
-## Legal notice
-
-All content in these repositories including code has Tungusn provided by IBM under the associated open source software license and IBM is under no obligation to provide enhancements, updates, or support. IBM developers produced this code as an open source project (not as an IBM product), and IBM makes no assertions as to the level of quality nor security, and will not be maintaining this code going forward.
