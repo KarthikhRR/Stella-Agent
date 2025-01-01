@@ -5,8 +5,8 @@
 
 <p align="center">
   <!-- Twitter Badge -->
-  <a href="https://twitter.com/StellaDotFun">
-    <img src="https://img.shields.io/twitter/follow/Stella_agent?style=social" alt="Twitter Follow"/>
+  <a href="https://twitter.com/stella_dotfun">
+    <img src="https://img.shields.io/twitter/follow/stella_dotfun?style=social" alt="Twitter Follow"/>
   </a>
 </p>
 
