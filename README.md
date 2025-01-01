@@ -1,17 +1,17 @@
 <p align="center">
-    <img alt="Tungus Framework logo" src="/docs/assets/Tungus.jpg" height="128">
-    <h1 align="center">Tungus Multi-Agent Framework</h1>
+    <img alt="Stella Framework logo" src="/docs/assets/Stella.jpg" height="128">
+    <h1 align="center">Stella Multi-Agent Framework</h1>
 </p>
 
 <p align="center">
   <!-- Twitter Badge -->
-  <a href="https://twitter.com/Tungus_agent">
-    <img src="https://img.shields.io/twitter/follow/Tungus_agent?style=social" alt="Twitter Follow"/>
+  <a href="https://twitter.com/Stella_agent">
+    <img src="https://img.shields.io/twitter/follow/Stella_agent?style=social" alt="Twitter Follow"/>
   </a>
 </p>
 
 
-The Tungus Multi-Agent Framework builds scalable agent-based workflows with your model of choice, including the ability to deploy Twitter agents and Warpcast agents. The framework is designed to perform robustly with IBM Granite and Llama 3.x models, and we're actively working on optimizing its performance with other popular LLMs.
+The Stella Multi-Agent Framework builds scalable agent-based workflows with your model of choice, including the ability to deploy Twitter agents and Warpcast agents. The framework is designed to perform robustly with IBM Granite and Llama 3.x models, and we're actively working on optimizing its performance with other popular LLMs.
 
 Our goal is to empower developers to adopt the latest open-source and proprietary models with minimal changes to their current agent implementation.
 
@@ -23,30 +23,30 @@ Our goal is to empower developers to adopt the latest open-source and proprietar
 ### Installation
 
 ```shell
-npm install Tungus-agent-framework
+npm install Stella-agent-framework
 ```
 
 or
 
 ```shell
-yarn add Tungus-agent-framework
+yarn add Stella-agent-framework
 ```
 
 ### Example
 
 ```ts
-import { TungusAgent } from "Tungus-agent-framework/agents/Tungus/agent";
-import { OllamaChatLLM } from "Tungus-agent-framework/adapters/ollama/chat";
-import { TokenMemory } from "Tungus-agent-framework/memory/tokenMemory";
-import { DuckDuckGoSearchTool } from "Tungus-agent-framework/tools/search/duckDuckGoSearch";
-import { OpenMeteoTool } from "Tungus-agent-framework/tools/weather/openMeteo";
+import { StellaAgent } from "Stella-agent-framework/agents/Stella/agent";
+import { OllamaChatLLM } from "Stella-agent-framework/adapters/ollama/chat";
+import { TokenMemory } from "Stella-agent-framework/memory/tokenMemory";
+import { DuckDuckGoSearchTool } from "Stella-agent-framework/tools/search/duckDuckGoSearch";
+import { OpenMeteoTool } from "Stella-agent-framework/tools/weather/openMeteo";
 
 const llm = new OllamaChatLLM(); // default is llama3.1 (8B), it is recommended to use 70B model
 
-const agent = new TungusAgent({
-  llm, // for more explore 'Tungus-agent-framework/adapters'
-  memory: new TokenMemory({ llm }), // for more explore 'Tungus-agent-framework/memory'
-  tools: [new DuckDuckGoSearchTool(), new OpenMeteoTool()], // for more explore 'Tungus-agent-framework/tools'
+const agent = new StellaAgent({
+  llm, // for more explore 'Stella-agent-framework/adapters'
+  memory: new TokenMemory({ llm }), // for more explore 'Stella-agent-framework/memory'
+  tools: [new DuckDuckGoSearchTool(), new OpenMeteoTool()], // for more explore 'Stella-agent-framework/tools'
 });
 
 const response = await agent
@@ -67,14 +67,14 @@ console.log(`Agent 🤖 : `, response.result.text);
 >
 > `yarn` should be installed via Corepack ([tutorial](https://yarnpkg.com/corepack))
 
-1. Clone the repository `git clone git@github.com:i-am-Tungus/Tungus-agent-framework`.
+1. Clone the repository `git clone git@github.com:i-am-Stella/Stella-agent-framework`.
 2. Install dependencies `yarn install --immutable && yarn prepare`.
 3. Create `.env` (from `.env.template`) and fill in missing values (if any).
-4. Start the agent `yarn run start:Tungus` (it runs `/examples/agents/Tungus.ts` file).
+4. Start the agent `yarn run start:Stella` (it runs `/examples/agents/Stella.ts` file).
 
 ➡️ All examples can be found in the [examples](/examples) directory.
 
-➡️ To run an arbitrary example, use the following command `yarn start examples/agents/Tungus.ts` (just pass the appropriate path to the desired example).
+➡️ To run an arbitrary example, use the following command `yarn start examples/agents/Stella.ts` (just pass the appropriate path to the desired example).
 
 ### 📦 Modules
 
@@ -100,14 +100,14 @@ To see more in-depth explanation see [overview](/docs/overview.md).
 
 ## Key Features
 
-- 🤖 **AI agents**: Use our powerful [Tungus agent](/docs/agents.md) refined for Llama 3.1 and Granite 3.0, or [build your own](/docs/agents.md).
+- 🤖 **AI agents**: Use our powerful [Stella agent](/docs/agents.md) refined for Llama 3.1 and Granite 3.0, or [build your own](/docs/agents.md).
 - 🛠️ **Tools**: Use our [built-in tools](/docs/tools.md) or [create your own](/docs/tools.md) in Javascript/Python.
-- 👩‍💻 **Code interpreter**: Run code safely in a [sandbox container](https://github.com/i-am-Tungus/Tungus-code-interpreter).
+- 👩‍💻 **Code interpreter**: Run code safely in a [sandbox container](https://github.com/i-am-Stella/Stella-code-interpreter).
 - 💾 **Memory**: Multiple [strategies](/docs/memory.md) to optimize token spend.
 - ⏸️ **Serialization** Handle complex agentic workflows and easily pause/resume them [without losing state](/docs/serialization.md).
 - 🔍 **Instrumentation**: Use [Instrumentation](/docs/instrumentation.md) based on [Emitter](/docs/emitter.md) to have full visibility of your agent’s inner workings.
 - 🎛️ **Production-level** control with [caching](/docs/cache.md) and [error handling](/docs/errors.md).
-- 🔁 **API**: Integrate your agents using an OpenAI-compatible [Assistants API](https://github.com/i-am-Tungus/Tungus-api) and [Python SDK](https://github.com/i-am-Tungus/Tungus-python-sdk).
-- 🖥️ **Chat UI**: Serve your agent to users in a [delightful UI](https://github.com/i-am-Tungus/Tungus-ui) with built-in transparency, explainability, and user controls.
+- 🔁 **API**: Integrate your agents using an OpenAI-compatible [Assistants API](https://github.com/i-am-Stella/Stella-api) and [Python SDK](https://github.com/i-am-Stella/Stella-python-sdk).
+- 🖥️ **Chat UI**: Serve your agent to users in a [delightful UI](https://github.com/i-am-Stella/Stella-ui) with built-in transparency, explainability, and user controls.
 
 
