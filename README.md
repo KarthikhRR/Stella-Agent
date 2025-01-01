@@ -1,11 +1,11 @@
 <p align="center">
-    <img alt="Stella Framework logo" src="/docs/assets/Stella.jpg" height="128">
+    <img alt="Stella Framework logo" src="/docs/assets/stella.png" height="128">
     <h1 align="center">Stella Multi-Agent Framework</h1>
 </p>
 
 <p align="center">
   <!-- Twitter Badge -->
-  <a href="https://twitter.com/Stella_agent">
+  <a href="https://twitter.com/StellaDotFun">
     <img src="https://img.shields.io/twitter/follow/Stella_agent?style=social" alt="Twitter Follow"/>
   </a>
 </p>
